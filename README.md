@@ -119,13 +119,13 @@ python predict.py
 
 | Method | Endpoint   | Description                                       |
 | ------ | ---------- | ------------------------------------------------- |
-| `POST` | `/predict` | Sends patient data to the ML model for prediction |
+| `POST` | `/predict` | Sends patient data to the DL model for prediction |
 
 ## Deployment
 
 - **Frontend**: Deployed on AWS EC2 (`t2.micro`)
 - **Backend**: Deployed on AWS EC2 (`t2.micro`)
-- **ML Model**: Hosted on AWS SageMaker (`ml.m4.large` endpoint)
+- **DL Model**: Hosted on AWS SageMaker (`ml.m4.large` endpoint)
 
 ## Contribution
 
