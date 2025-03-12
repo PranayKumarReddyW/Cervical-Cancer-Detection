@@ -6,7 +6,7 @@ This project is a **full-stack web application** for **Cervical Cancer Predictio
 
 - **Frontend**: Built with React.js for user interaction.
 - **Backend**: Developed using Node.js and Express.js to handle API requests.
-- **Machine Learning Model**: A deep learning model trained on AWS SageMaker to predict cervical cancer risk.
+- **Deep Learning Model**: A deep learning model trained on AWS SageMaker to predict cervical cancer risk.
 - **Database**: Stores user data and prediction history.
 - **Jupyter Notebooks**: Contains model training, evaluation, and exploratory data analysis (EDA).
 
@@ -120,7 +120,6 @@ python predict.py
 | Method | Endpoint   | Description                                       |
 | ------ | ---------- | ------------------------------------------------- |
 | `POST` | `/predict` | Sends patient data to the ML model for prediction |
-| `GET`  | `/history` | Fetches previous predictions                      |
 
 ## Deployment
 
