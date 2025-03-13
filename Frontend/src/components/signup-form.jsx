@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 
 export function SignupForm({ className, ...props }) {
-    const BASE_URL = "http://localhost:4000";
+    const BASE_URL = "http://cerviscan.tech/api/";
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +32,7 @@ export function SignupForm({ className, ...props }) {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/api/user/register`, {
+            const response = await fetch(`/user/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ fullName, email, password, mobileNumber }),

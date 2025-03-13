@@ -20,7 +20,7 @@ export default function Navbar() {
 
     const handleLogout = async () => {
         try {
-            await axios.post("http://localhost:4000/api/user/logout", {}, {
+            await axios.post("/user/logout", {}, {
                 withCredentials: true,
             });
 

@@ -95,7 +95,7 @@ const AppWrapper = () => {
       }
 
       try {
-        const res = await axios.get(`${BASE_URL}/api/user/user`, {
+        const res = await axios.get(`/user/user`, {
           withCredentials: true,
         });
 

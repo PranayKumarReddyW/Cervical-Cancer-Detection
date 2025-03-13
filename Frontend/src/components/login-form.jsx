@@ -19,7 +19,7 @@ import axios from "axios"
 export function LoginForm({ className, ...props }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const BASE_URL = "http://localhost:4000"
+  const BASE_URL = "http://cerviscan.tech/api/"
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -28,7 +28,7 @@ export function LoginForm({ className, ...props }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/login`,
+        `/user/login`,
         { email, password }, // Sending credentials in request body
         { withCredentials: true } // Ensuring cookies are sent/received
       );
