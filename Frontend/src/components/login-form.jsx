@@ -27,7 +27,7 @@ export function LoginForm({ className, ...props }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${BASE_URL}/user/login`,
+        `${BASE_URL}user/login`,
         { email, password }, // Sending credentials in request body
         { withCredentials: true } // Ensuring cookies are sent/received
       );
