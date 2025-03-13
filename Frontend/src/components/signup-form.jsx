@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import axios from "axios";
 
 export function SignupForm({ className, ...props }) {
     const BASE_URL = "http://cerviscan.tech/api/";
@@ -32,21 +33,24 @@ export function SignupForm({ className, ...props }) {
         }
 
         try {
-            const response = await fetch(`/user/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ fullName, email, password, mobileNumber }),
-            });
-            const data = await response.json();
-            if (response.ok) {
+            const response = await axios.post("/user/register", { fullName, email, password, mobileNumber });
+
+            // Axios automatically parses JSON, so use response.data directly
+            if (response.status === 200 || response.status === 201) {
                 toast.success("Account created successfully!");
                 navigate("/login");
             } else {
-                toast.error(data.error);
+                toast.error(response.data.error);
             }
         } catch (error) {
-            toast("Something went wrong. Please try again later.");
+            // Handling API errors
+            if (error.response) {
+                toast.error(error.response.data.error || "Registration failed.");
+            } else {
+                toast.error("Something went wrong. Please try again later.");
+            }
         }
+
     };
 
     return (
