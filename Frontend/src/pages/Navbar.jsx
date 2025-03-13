@@ -17,10 +17,11 @@ export default function Navbar() {
     useEffect(() => {
         setIsAuthenticated(Boolean(user?.name && user?.emailId));
     }, [user]);
+    const BASE_URL = import.meta.env.VITE_API_BASE_URI;
 
     const handleLogout = async () => {
         try {
-            await axios.post("/user/logout", {}, {
+            await axios.post(BASE_URL + "/user/logout", {}, {
                 withCredentials: true,
             });
 

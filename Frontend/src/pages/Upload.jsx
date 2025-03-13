@@ -32,6 +32,7 @@ const UploadComponent = () => {
         setError("");
     };
 
+    const BASE_URL = import.meta.env.VITE_MODEL_BASE_URI;
     const handleUpload = async () => {
         if (!image) return alert("Please select an image.");
 
@@ -40,7 +41,7 @@ const UploadComponent = () => {
         formData.append("file", image);
 
         try {
-            const response = await fetch("http://44.204.157.21:5000/predict", {
+            const response = await fetch(BASE_URL + "/predict", {
                 method: "POST",
                 body: formData,
             });

@@ -16,7 +16,7 @@ import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
 
 export function SignupForm({ className, ...props }) {
-    const BASE_URL = "http://cerviscan.tech/api/";
+    const BASE_URL = import.meta.env.VITE_API_BASE_URI;
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -24,7 +24,6 @@ export function SignupForm({ className, ...props }) {
     const [mobileNumber, setMobileNumber] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-
     const handleSignup = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
@@ -33,7 +32,7 @@ export function SignupForm({ className, ...props }) {
         }
 
         try {
-            const response = await axios.post("/user/register", { fullName, email, password, mobileNumber });
+            const response = await axios.post(BASE_URL + "/user/register", { fullName, email, password, mobileNumber });
 
             // Axios automatically parses JSON, so use response.data directly
             if (response.status === 200 || response.status === 201) {

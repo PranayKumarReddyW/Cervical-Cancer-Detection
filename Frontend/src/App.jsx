@@ -14,8 +14,7 @@ import { toast } from "react-hot-toast";
 import Cookies from "js-cookie";
 import Dashboard from "./pages/Dashboard";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-axios.defaults.baseURL = "http://cerviscan.tech/api";
+const BASE_URL = import.meta.env.VITE_API_BASE_URI;
 
 const ProtectedRoute = ({ user, allowedRoles, children }) => {
   const navigate = useNavigate();
@@ -95,7 +94,7 @@ const AppWrapper = () => {
       }
 
       try {
-        const res = await axios.get(`/user/user`, {
+        const res = await axios.get(BASE_URL + `/user/user`, {
           withCredentials: true,
         });
 

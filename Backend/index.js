@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cookieparser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:4000",
     credentials: true,
   })
 );
@@ -22,4 +22,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.use("/api/user", require("./routes/user"));
+app.use("/user", require("./routes/user"));
