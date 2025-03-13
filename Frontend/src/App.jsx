@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 import Dashboard from "./pages/Dashboard";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
+axios.defaults.baseURL = "http://cerviscan.tech/api";
 
 const ProtectedRoute = ({ user, allowedRoles, children }) => {
   const navigate = useNavigate();
